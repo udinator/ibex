@@ -24,7 +24,8 @@
          -Mdir=<out>/vcs_simv.csrc
          -o <out>/vcs_simv
          -debug_access+pp
-         -lca -kdb <cmp_opts> <wave_opts> <cov_opts>"
+         -lca -kdb <wave_opts> <cov_opts>
+         -xprop=xprop.cfg"
     cov_opts: >
       -cm line+tgl+assert+fsm+branch
       -cm_tgl portsonly
