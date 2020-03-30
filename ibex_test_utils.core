@@ -2,19 +2,19 @@ CAPI=2:
 # Copyright lowRISC contributors.
 # Licensed under the Apache License, Version 2.0, see LICENSE for details.
 # SPDX-License-Identifier: Apache-2.0
-name: "lowrisc:dv:mem_model"
-description: "DV Memory Model"
 
+# Various external utility packages required for Ibex DV
+name: "lowrisc:dv:ibex_test_utils"
+description: "CORE_IBEX DV test utils"
 filesets:
   files_dv:
-    depend:
-      - lowrisc:dv:ibex_utils
     files:
-      - mem_model_pkg.sv
-      - mem_model.sv: {is_include_file: true}
+      - rtl/ibex_pkg.sv
+      - vendor/google_riscv-dv/src/riscv_signature_pkg.sv
     file_type: systemVerilogSource
 
 targets:
   default:
     filesets:
       - files_dv
+    default_tool: vcs

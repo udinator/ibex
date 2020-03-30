@@ -1,0 +1,22 @@
+CAPI=2:
+# Copyright lowRISC contributors.
+# Licensed under the Apache License, Version 2.0, see LICENSE for details.
+# SPDX-License-Identifier: Apache-2.0
+name: "lowrisc:dv:irq_agent"
+description: "Ibex DV interrupt agent"
+
+filesets:
+  files_dv:
+    files:
+      - irq_if.sv
+      - irq_agent_pkg.sv
+      - irq_seq_item.sv: {is_include_file: true}
+      - irq_monitor.sv: {is_include_file: true}
+      - irq_master_driver.sv: {is_include_file: true}
+      - irq_master_agent.sv: {is_include_file: true}
+    file_type: systemVerilogSource
+
+targets:
+  default:
+    filesets:
+      - files_dv

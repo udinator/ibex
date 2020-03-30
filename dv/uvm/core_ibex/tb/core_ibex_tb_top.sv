@@ -11,7 +11,7 @@ module core_ibex_tb_top;
   wire rst_n;
   logic fetch_enable;
 
-  clk_if         ibex_clk_if(.clk(clk), .rst_n(rst_n));
+  clk_if         clk_vif(.clk(clk), .rst_n(rst_n));
   irq_if         irq_vif();
   ibex_mem_intf  data_mem_vif();
   ibex_mem_intf  instr_mem_vif();
@@ -107,7 +107,7 @@ module core_ibex_tb_top;
   assign csr_if.csr_op          = dut.u_ibex_core.csr_op;
 
   initial begin
-    uvm_config_db#(virtual clk_if)::set(null, "*", "clk_if", ibex_clk_if);
+    uvm_config_db#(virtual clk_if)::set(null, "*", "clk_if", clk_vif);
     uvm_config_db#(virtual core_ibex_dut_probe_if)::set(null, "*", "dut_if", dut_if);
     uvm_config_db#(virtual core_ibex_csr_if)::set(null, "*", "csr_if", csr_if);
     uvm_config_db#(virtual core_ibex_rvfi_if)::set(null, "*", "rvfi_if", rvfi_if);

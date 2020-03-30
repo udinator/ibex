@@ -1,0 +1,23 @@
+CAPI=2:
+# Copyright lowRISC contributors.
+# Licensed under the Apache License, Version 2.0, see LICENSE for details.
+# SPDX-License-Identifier: Apache-2.0
+name: "lowrisc:dv:core_ibex_test"
+description: "IBEX DV test classes"
+filesets:
+  files_dv:
+    depend:
+      - lowrisc:dv:core_ibex_env
+    files:
+      - core_ibex_test_pkg.sv
+      - core_ibex_report_server.sv: {is_include_file: true}
+      - core_ibex_seq_lib.sv: {is_include_file: true}
+      - core_ibex_vseq.sv: {is_include_file: true}
+      - core_ibex_base_test.sv: {is_include_file: true}
+      - core_ibex_test_lib.sv: {is_include_file: true}
+    file_type: systemVerilogSource
+
+targets:
+  default:
+    filesets:
+      - files_dv
